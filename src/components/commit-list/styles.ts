@@ -20,7 +20,7 @@ export const CommitListWrapper = styled.div`
 export const CommitCard = styled.div`
   position: relative;
   
-  padding: 12px;
+  padding: 0 12px 12px 12px;
   margin-bottom: 24px;
   
   border: 1px solid Salmon;
@@ -53,7 +53,7 @@ export const CommitCard = styled.div`
   }
 `
 
-export const CommitMessage = styled.div`
+export const CommitMessage = styled.h4`
     margin-bottom: 12px;
 `
 
@@ -64,4 +64,5 @@ export const CommitInfoDate = styled.span`
 `
 
 export const CommitInfoAuthor = styled.span`
+    font-weight: bold;
 `

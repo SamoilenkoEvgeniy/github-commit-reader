@@ -14,3 +14,8 @@ export const Title = styled.h1`
   text-align: center;
   color: palevioletred;
 `;
+
+export const ErrorText = styled.div`
+  color: orangered;
+  margin-top: 4px;
+`
