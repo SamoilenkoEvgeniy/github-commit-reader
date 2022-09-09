@@ -29,8 +29,11 @@ export const InputRepo = ({
     return (
         <>
             <InputRepoWrapper>
-                <input placeholder='Please, input repo which commits you want to see'
-                       onChange={e => setRepo(e.target.value)}/>
+                <input
+                    placeholder='Please, input repo which commits you want to see'
+                    onChange={e => setRepo(e.target.value)}
+                    autoFocus
+                />
                 <button onClick={parseRepo}>Load commits</button>
             </InputRepoWrapper>
 

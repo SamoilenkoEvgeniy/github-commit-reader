@@ -20,7 +20,7 @@ export const InputUserKey = ({ onKeySet, currentKey }: InputUserKeyProps) => {
 
     return (
         <InputUserKeyWrapper>
-            <input placeholder='Please, put your key there' defaultValue={currentKey} onChange={e => setKey(e.target.value)}/>
+            <input type="url" placeholder='Please, put your key there' defaultValue={currentKey} onChange={e => setKey(e.target.value)}/>
             <button onClick={save}>{getLabel}</button>
         </InputUserKeyWrapper>
     )
