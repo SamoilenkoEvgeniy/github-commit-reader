@@ -10,11 +10,10 @@ interface InputUserKeyProps {
 }
 
 export const InputUserKey = ({ onKeySet, currentKey }: InputUserKeyProps) => {
-    const [ key, setKey ] = useState<string>('');
+    const [ key, setKey ] = useState<string>(currentKey);
     const getLabel = useMemo(() => currentKey ? 'change' : 'save', [currentKey]);
 
     const save = () => {
-        console.log('key', key);
         setStorageValue(USER_GITHUB_PRIVATE_KEY, key);
         onKeySet();
     };

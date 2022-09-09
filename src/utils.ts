@@ -11,6 +11,6 @@ export const setStorageValue = (key: string, value: string) => {
     if (typeof window === "undefined") {
         throw new Error('localStorage is not working');
     }
-    
-    return localStorage.setItem(key, value)
+
+    return localStorage.setItem(key, value);
 }
