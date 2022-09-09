@@ -17,10 +17,6 @@ function App() {
     const [ errorState, setErrorState ] = useState<string | null>(null);
     const [ fetchError, setFetchError ] = useState<boolean>(false);
 
-    const onKeySet = useCallback(() => {
-        setUserKey(getStorageValue(USER_GITHUB_PRIVATE_KEY, ''));
-    }, []);
-
     const fetchCommits = useCallback(async (repo: AllCommitsRequestParams) => {
         if (!userKey) return;
 
@@ -34,6 +30,13 @@ function App() {
             setFetchError(true);
         }
     }, [ userKey ]);
+
+    const onKeySet = useCallback(async () => {
+        setUserKey(getStorageValue(USER_GITHUB_PRIVATE_KEY, ''));
+        if (!repo) return;
+        await fetchCommits(repo);
+    }, [ repo, fetchCommits ]);
+
 
     const onRepoSet = useCallback(async (value: AllCommitsRequestParams) => {
         setRepo(value);
@@ -50,7 +53,7 @@ function App() {
             <Title>
                 Hello World!
             </Title>
-            {!repo && (
+            {(!repo && userKey) && (
                 <InputRepo
                     setErrorState={setErrorState}
                     repoUpdated={onRepoSet}

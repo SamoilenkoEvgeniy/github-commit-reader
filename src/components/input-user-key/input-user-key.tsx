@@ -14,6 +14,7 @@ export const InputUserKey = ({ onKeySet, currentKey }: InputUserKeyProps) => {
     const getLabel = useMemo(() => currentKey ? 'change' : 'save', [currentKey]);
 
     const save = () => {
+        console.log('key', key);
         setStorageValue(USER_GITHUB_PRIVATE_KEY, key);
         onKeySet();
     };
