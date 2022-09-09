@@ -36,7 +36,7 @@ function App() {
         setUserKey(userKey);
         if (!repo || !userKey) return;
         await fetchCommits(repo, userKey);
-    }, [ repo, userKey, fetchCommits ]);
+    }, [ repo, fetchCommits ]);
 
 
     const onRepoSet = useCallback(async (value: AllCommitsRequestParams) => {
