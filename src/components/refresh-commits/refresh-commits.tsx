@@ -9,7 +9,7 @@ interface RefreshCommitsProps {
 const COUNTER_SECONDS = 30;
 
 export const RefreshCommits = ({ onRefresh }: RefreshCommitsProps) => {
-    const [counter, setCounter] = useState(COUNTER_SECONDS);
+    const [ counter, setCounter ] = useState(COUNTER_SECONDS);
     useEffect(() => {
         const interval = setInterval(() => {
             setCounter((prevState) => {
@@ -22,7 +22,7 @@ export const RefreshCommits = ({ onRefresh }: RefreshCommitsProps) => {
             });
         }, 1000);
         return () => clearInterval(interval);
-    }, []);
+    }, [ onRefresh ]);
 
     const onRefreshHandler = () => {
         setCounter(COUNTER_SECONDS);
@@ -31,7 +31,8 @@ export const RefreshCommits = ({ onRefresh }: RefreshCommitsProps) => {
 
     return (
         <RefreshCommitsButtonWrapper>
-            <button onClick={onRefreshHandler}>Refresh</button> <span>{counter}</span>
+            <button onClick={onRefreshHandler}>Refresh</button>
+            <span>{counter}</span>
         </RefreshCommitsButtonWrapper>
     )
 }
